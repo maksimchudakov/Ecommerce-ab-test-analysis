@@ -1,8 +1,8 @@
 ## 📌 Project Overview
 
-A multi-dimensional A/B test analysis conducted on an e-commerce platform to evaluate whether a **redesigned landing page** drives higher conversion rates compared to the existing design.
+A multi-segment A/B test analysis on a public e-commerce dataset (Kaggle) to evaluate whether a **redesigned landing page** drives higher conversion than the existing design.
 
-Rather than stopping at aggregate results, this study applies **segmentation analysis** across user behavioral dimensions — uncovering a critical insight that top-level metrics completely missed: the new design **actively harms conversion rates among returning users**, putting an estimated **$548,332 in annual revenue at risk.**
+The overall result was inconclusive, so the analysis explores a proxy segmentation (new vs. returning users, based on a user_id split) to generate hypotheses for a follow-up test. The returning-user segment shows an **exploratory** drop in conversion, and an assumption-based revenue scenario of about \$548,332 per year is modeled.
 
 ---
 
@@ -44,6 +44,12 @@ This is a classic example of how **top-level metrics can mask opposing segment-l
 
 > **Do not launch the new landing page globally.** Implement a segmented experience — preserve the current page for returning users and conduct qualitative research to understand friction points before the next experiment iteration.
 
+## Limitations
+
+- **Public dataset:** This uses a public Kaggle dataset, not a live company experiment.
+- **Proxy segment:** The dataset has no new/returning field. Users were split at the median user_id as an unverified proxy.
+- **Exploratory result:** Several slices of the data were checked after the overall result was flat, so one may look significant by chance. The returning-user result (p = 0.0287) should be confirmed in a follow-up test before acting on it.
+- **Revenue scenario:** The dataset has no revenue field. The figure assumes a \$85 average order value and treats the 145,292 proxy-returning users as one month of traffic.
 ---
 
 ## 🛠 Tech Stack
